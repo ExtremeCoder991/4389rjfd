@@ -22,10 +22,11 @@ function draw() {
         r = random(255);
         g = random(255);
         b = random(255);
+        objectDetector.detect(video, gotResult);
         for (i = 0; i < objects.length; i++) {
             document.getElementById("status").innerHTML = "Status : Object Detected";
             document.getElementById("number_of_objects").innerHTML = "Number of objects detected are : " + objects.length;
-            fill(r, g, b)
+            fill(r, g, b);
             percent = floor(objects[i].confidence * 100);
             text(objects[i].label + " " + percent + "%", objects[i].x + 15, objects[i].y + 15);
             noFill();
